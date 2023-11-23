@@ -1,3 +1,4 @@
+const TOKEN = Cypress.env('TOKEN') 
 const finalURL = `http://localhost:3000/piazza/user/login`;
 describe('Piazza login test', () => {
 	// here i save the url as an alias @google

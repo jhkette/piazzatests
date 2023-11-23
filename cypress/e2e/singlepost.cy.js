@@ -1,3 +1,4 @@
+const TOKEN = Cypress.env('TOKEN') 
 
 const finalURL = `http://localhost:3000/piazza/posts/655b4fb2f82ee941ee1dd9e9`;
 
@@ -11,7 +12,7 @@ describe('Google calender api test', () => {
 			url: finalURL,
 
 			headers: {
-				authtoken: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWY0YWMyMzU1MjYzNGQ4NGQwN2NkZSIsImlhdCI6MTcwMDc1NDAzMCwiZXhwIjoxNzExMTIyMDMwfQ.dhIzHTKLvJLH2wMipdlcYqamLmockgvbVbp0axMqMd4`
+				authtoken: TOKEN
 			},
 		}).as('piazza');
 	});

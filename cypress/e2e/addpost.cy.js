@@ -1,3 +1,4 @@
+const TOKEN = Cypress.env('TOKEN') 
 const finalURL = `http://localhost:3000/piazza/posts/`;
 describe('Piazza login test', () => {
 	// here i save the url as an alias @google
@@ -6,7 +7,7 @@ describe('Piazza login test', () => {
 			method: 'POST',
 			url: finalURL,
             headers: {
-            authtoken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NWY0YWMyMzU1MjYzNGQ4NGQwN2NkZSIsImlhdCI6MTcwMDc1NDAzMCwiZXhwIjoxNzExMTIyMDMwfQ.dhIzHTKLvJLH2wMipdlcYqamLmockgvbVbp0axMqMd4",
+            authtoken: TOKEN
             },
             body: {
                 "title": "test",
