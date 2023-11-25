@@ -5,3 +5,5 @@ This should be a JSON object with one value
 {
     TOKEN : YOUR_AUTH_TOKEN
 }
+
+Click on e2e tests and run tests.
