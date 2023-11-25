@@ -1,12 +1,12 @@
 const TOKEN = Cypress.env('TOKEN') 
 
-const finalURL = `http://localhost:3000/piazza/posts/655b4fb2f82ee941ee1dd9e9`;
+const finalURL = `34.42.98.72/piazza/posts/6560af604e75e77b4e44cc32`;
 
-// https://docs.cypress.io/guides/core-concepts/variables-and-aliases
 
-describe('Google calender api test', () => {
-	// here i save the url as an alias @google
-	beforeEach(() => {
+
+describe('Get single post', () => {
+	
+	beforeEach(() => { // set up single post GET request
         cy.request({
 			method: 'GET',
 			url: finalURL,
@@ -22,8 +22,7 @@ describe('Google calender api test', () => {
 			expect(response.status).to.eq(200);
             cy.log(response.body)
             expect(response.body.post).to.have.property("topic")
-            expect(response.body.post).to.have.property("title")
-            
+            expect(response.body.post).to.have.property("title")     
 		});
 	});
 });

@@ -1,5 +1,5 @@
 const TOKEN = Cypress.env('TOKEN') 
-const finalURL = `http://localhost:3000/piazza/posts/655b4fb2f82ee941ee1dd9e9/dislike`;
+const finalURL = `34.42.98.72/piazza/posts/6560af604e75e77b4e44cc32/dislike`;
 
 /*This test only works when user has already disliked the post */
 describe("Piazza dislke test", () => {
@@ -18,9 +18,6 @@ describe("Piazza dislke test", () => {
     cy.get("@piazza").then((response) => {
 		expect(response.status).to.eq(200);
       expect(response.body).to.have.property("message"); // we should recieve a message as this user has already liked this post
-      
-
-      cy.log(response.body);
     });
   });
 });

@@ -1,8 +1,8 @@
 const TOKEN = Cypress.env('TOKEN') 
-const finalURL = `http://localhost:3000/piazza/user/login`;
+const finalURL = `34.42.98.72/piazza/user/login`;
 describe('Piazza login test', () => {
-	// here i save the url as an alias @google
-	beforeEach(() => {
+	
+	beforeEach(() => { // here i set up a login request
         cy.request({
 			method: 'POST',
 			url: finalURL,
@@ -13,8 +13,8 @@ describe('Piazza login test', () => {
             },
 		}).as('piazza');
 	});
-	
-	it('logsi and returns data', () => {
+	// check for 200 status and data returned
+	it('logsin and returns data', () => {
 		cy.get('@piazza').then((response) => {
 			expect(response.status).to.eq(200);
             expect(response.body).to.have.property("authtoken")
@@ -25,7 +25,7 @@ describe('Piazza login test', () => {
 })
 
 describe('Piazza login test for login error', () => {
-	// here i save the url as an alias @google
+	
 	beforeEach(() => {
         cy.request({
 			method: 'POST',
@@ -37,8 +37,8 @@ describe('Piazza login test for login error', () => {
             },
 		}).as('piazza');
 	});
-	// check for 200 status and data returned
-	it('returns posts with appropriate data', () => {
+	// check for 401 status and data returned (login should fail)
+	it('returns data for failed login', () => {
 		cy.get('@piazza').then((response) => {
 			expect(response.status).to.eq(401);
              expect(response.body).to.have.property("message")
